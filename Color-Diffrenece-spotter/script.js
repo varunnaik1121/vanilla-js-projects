@@ -1,7 +1,8 @@
 const mainContainer = document.querySelector(".main-container");
-var startingSize = 7;
+var startingSize = 2;
 var size = startingSize;
 var score = 0;
+var allowClick = true;
 const minMax = (min, max) => {
   return Math.floor(Math.random() * (max - min)) + min;
 };
@@ -47,5 +48,32 @@ const generateBoard = (container, size) => {
 generateBoard(mainContainer, size);
 
 document.addEventListener("click", (e) => {
-  console.log(e.target);
+  if (!allowClick) return;
+  if (e.target.classList.contains("box")) {
+    if (e.target.id == "odd-box") {
+      score++;
+      document.querySelector(".show-score").textContent = score;
+      mainContainer.innerHTML = "";
+      generateBoard(mainContainer, ++size);
+    } else {
+      allowClick = false;
+      score = 0;
+      shakeBoard(() => {
+        document.querySelector(".show-score").textContent = score;
+        size = startingSize;
+        mainContainer.innerHTML = "";
+        generateBoard(mainContainer, size);
+        allowClick = true;
+      });
+    }
+  }
 });
+
+const shakeBoard = (callback) => {
+  mainContainer.classList.add("shake");
+
+  setTimeout(() => {
+    mainContainer.classList.remove("shake");
+    callback();
+  }, 1000);
+};
