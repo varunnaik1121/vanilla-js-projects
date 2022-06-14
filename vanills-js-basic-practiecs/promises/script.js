@@ -23,3 +23,24 @@ const dispaly = () => {
 };
 
 btn.addEventListener("click", dispaly);
+
+//another example for promises
+
+let demoPromise = new Promise((resolve, reject) => {
+  let value = true;
+  setTimeout(() => {
+    if (value) {
+      resolve("done");
+    } else {
+      reject("failed");
+    }
+  }, 2000);
+});
+
+demoPromise
+  .then((status) => {
+    console.log(status);
+  })
+  .catch((err) => {
+    console.log(err);
+  });

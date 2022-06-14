@@ -22,7 +22,11 @@ let delayPromise = new Promise((resolve) => {
   }, 2000);
 });
 
-let promises = [Promise.resolve(2), Promise.resolve(3), delayPromise];
-promisesAll(promises).then((data) => {
-  console.log(data);
-});
+let promises = [Promise.resolve(2), Promise.resolve(3), delayPromise,Promise.reject('hath ho gaya')];
+promisesAll(promises)
+  .then((data) => {
+    console.log(data);
+  })
+  .catch((err) => {
+    console.log(err);
+  });
