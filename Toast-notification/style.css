@@ -1,0 +1,112 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 0;
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+}
+
+.wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.drop-down{
+    margin-top: 20px;
+}
+
+select{
+    padding: 5px 20px;
+}
+
+div input{
+    margin-top: 10px;
+
+}
+button{
+    padding: 8px 15px;
+    cursor: pointer;
+    background-color: #8f44fd;
+    color: white;
+    outline: none;
+    border: none;
+    box-shadow: 2px 2px 4px rgba(0,0,0,.3);
+    margin-top: 20px;
+}
+.toast{
+    width: 200px;
+    border: 1px solid red;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    position: absolute;
+  
+   padding: 5px;
+   margin: 10px;
+ 
+  
+   
+   
+    
+  
+  
+
+}
+.clear{
+    background-color: blue;
+    padding: inherit;
+    color: white;
+}
+.success{
+    background-color: green;
+}
+.warning{
+    background-color: rgb(187, 61, 7);
+}
+.info{
+    background-color: rgb(224, 228, 23);
+}
+.error{
+    background-color: red;
+    position: absolute;
+  
+}
+
+
+.showFromLeft{
+    animation: slideFromLeft .2s ease-in forwards;
+}
+.showFromRight{
+    animation: slideFromRight .2s ease-in forwards;
+}
+
+@keyframes slideFromLeft {
+    0%{
+        transform: translate(-100%,0);
+
+    }
+    100%{
+        transform: translate(0,0);
+    }
+    
+}
+
+@keyframes slideFromRight {
+    0%{
+        transform: translate(100%,0);
+
+    }
+    100%{
+        transform: translate(0,0);
+    }
+    
+}

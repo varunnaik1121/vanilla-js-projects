@@ -1,11 +1,11 @@
 let posts = [];
 
-const createPosts = (num, callback) => {
+const createPosts = (num) => {
   setTimeout(() => {
     for (let i = 0; i < num; i++) {
       posts.push(i);
     }
-    callback();
+   displayPosts()
   }, 3000);
 };
 
@@ -14,4 +14,4 @@ const displayPosts = () => {
     console.log(value);
   });
 };
-createPosts(20, displayPosts);
+createPosts(20);
